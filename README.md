@@ -8,7 +8,7 @@ You can find the steps to compile CryptoPP for Android [here](https://github.com
 
 * **Make sure** that if you download my pre-compiled versions, that you put the cryptopp folder inside your /usr/local/ directory, since this is where the Android.mk file will look for them.
 
-* I found [this](https://www.youtube.com/watch?v=RmPuwdxR1qs) Youtube tutorial very helpful in figuring how to setup the JNI structure and add from helpful javah and ndk-build tool to Android Studio.
+* I found [this](https://www.youtube.com/watch?v=RmPuwdxR1qs) Youtube tutorial very helpful in figuring how to setup the JNI structure as well as adding some helpful javah and ndk-build tools to Android Studio.
 
 * In the Android.mk file, make sure you change the **STLPORT_INCL** and **STLPORT_LIB** lines to point specifically to **your** ndk folder. For example, mine is located on my computer at '/Users/ThomasColligan/Library/Android/sdk/ndk-bundle/'
 
