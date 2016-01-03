@@ -7,7 +7,7 @@ import android.widget.TextView;
 
 public class MainActivity extends AppCompatActivity
 {
-    private static final String LOG_TAG = "TEST";
+    private static final String LOG_TAG = "testjni";
     private TextView textView;
 
     @Override

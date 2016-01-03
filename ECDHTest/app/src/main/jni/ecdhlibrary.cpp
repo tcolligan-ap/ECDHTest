@@ -65,7 +65,7 @@ JNIEXPORT jobject JNICALL Java_com_tcolligan_ecdhtest_ECDHLibrary_generateKeyPai
         jobject publicKeyByteBuffer = (*env).NewDirectByteBuffer(pubA.BytePtr(), pubA.SizeInBytes());
         jobject privateKeyByteBuffer = (*env).NewDirectByteBuffer(privA.BytePtr(), privA.SizeInBytes());
 
-        // Return the ECDH Key Pair back as a Java GTKeyPair object
+        // Return the ECDH Key Pair back as a Java ECDHKeyPair object
         jclass keyPairClass = (*env).FindClass("com/tcolligan/ecdhtest/ECDHKeyPair");
         jmethodID midConstructor = (*env).GetMethodID(keyPairClass, "<init>", "(Ljava/nio/ByteBuffer;Ljava/nio/ByteBuffer;)V");
         jobject keyPairObject = (*env).NewObject(keyPairClass, midConstructor, publicKeyByteBuffer, privateKeyByteBuffer);
