@@ -108,9 +108,14 @@ JNIEXPORT jobject JNICALL Java_com_tcolligan_ecdhtest_ECDHLibrary_retrieveShared
         ALOG("Shared Secret Byte Size: %d", sharedSecretByteBlock.SizeInBytes());
 
         // Return the shared secret as a Java ByteBuffer
-        jobject publicKeyByteBuffer = (*env).NewDirectByteBuffer(sharedSecretByteBlock.BytePtr(), sharedSecretByteBlock.SizeInBytes());
+        jobject sharedSecretByteBuffer = (*env).NewDirectByteBuffer(sharedSecretByteBlock.BytePtr(), sharedSecretByteBlock.SizeInBytes());
 
-        return publicKeyByteBuffer;
+        // Return the ECDH Key Pair back as a Java ECDHKeyPair object
+        jclass keyPairClass = (*env).FindClass("com/tcolligan/ecdhtest/SharedSecret");
+        jmethodID midConstructor = (*env).GetMethodID(keyPairClass, "<init>", "(Ljava/nio/ByteBuffer;)V");
+        jobject sharedSecretObject = (*env).NewObject(keyPairClass, midConstructor, sharedSecretByteBuffer);
+
+        return sharedSecretObject;
 }
 
 JNIEXPORT void JNICALL Java_com_tcolligan_ecdhtest_ECDHLibrary_test

@@ -18,7 +18,7 @@ JNIEXPORT jobject JNICALL Java_com_tcolligan_ecdhtest_ECDHLibrary_generateKeyPai
 /*
  * Class:     com_tcolligan_ecdhtest_ECDHLibrary
  * Method:    retrieveSharedSecret
- * Signature: ([B[B)Ljava/nio/ByteBuffer;
+ * Signature: ([B[B)Lcom/tcolligan/ecdhtest/SharedSecret;
  */
 JNIEXPORT jobject JNICALL Java_com_tcolligan_ecdhtest_ECDHLibrary_retrieveSharedSecret
   (JNIEnv *, jclass, jbyteArray, jbyteArray);

@@ -2,6 +2,7 @@ package com.tcolligan.ecdhtest;
 
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.util.Base64;
 import android.util.Log;
 import android.widget.TextView;
 
@@ -27,14 +28,11 @@ public class MainActivity extends AppCompatActivity
         log(LOG_TAG, String.format("Alice Key Pair: %s", aliceKeyPair.toString()));
         log(LOG_TAG, String.format("Bob Key Pair: %s", bobKeyPair.toString()));
 
-        byte[] sharedSecretA = ECDHLibrary.getSharedSecret(bobKeyPair.publicKey, aliceKeyPair.privateKey);
-        byte[] sharedSecretB = ECDHLibrary.getSharedSecret(aliceKeyPair.publicKey, bobKeyPair.privateKey);
+        SharedSecret sharedSecretA = ECDHLibrary.retrieveSharedSecret(bobKeyPair.publicKey, aliceKeyPair.privateKey);
+        SharedSecret sharedSecretB = ECDHLibrary.retrieveSharedSecret(aliceKeyPair.publicKey, bobKeyPair.privateKey);
 
-        String hexA = Utils.bytesToHexString(sharedSecretA);
-        String hexB = Utils.bytesToHexString(sharedSecretB);
-
-        log(LOG_TAG, String.format("Secret A: %s", hexA));
-        log(LOG_TAG, String.format("Secret B: %s", hexB));
+        log(LOG_TAG, String.format("Secret A: %s", sharedSecretA.toString()));
+        log(LOG_TAG, String.format("Secret B: %s", sharedSecretB.toString()));
     }
 
     private void log(String tag, String message)

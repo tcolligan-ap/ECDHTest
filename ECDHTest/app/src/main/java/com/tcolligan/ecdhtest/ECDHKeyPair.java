@@ -1,5 +1,7 @@
 package com.tcolligan.ecdhtest;
 
+import android.util.Base64;
+
 import java.nio.ByteBuffer;
 
 /**
@@ -27,7 +29,7 @@ public class ECDHKeyPair
     public String toString()
     {
         return String.format("Public Key: %s Private Key: %s",
-                                Utils.bytesToHexString(publicKey),
-                                Utils.bytesToHexString(privateKey));
+                Base64.encodeToString(publicKey, Base64.DEFAULT),
+                Base64.encodeToString(privateKey, Base64.DEFAULT));
     }
 }
