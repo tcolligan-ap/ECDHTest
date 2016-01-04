@@ -16,6 +16,5 @@ You can find the steps to compile CryptoPP for Android [here](https://github.com
 
 If you just build and run the project as is, you should have no issues, however if you modify the ecdhlibrary.cpp file you will need to run the ndk-build command yourself to re-compile the .so files.
 
-## Issues
-
-You can find some test code in MainActivity.java. If you get this running you should be able to see that the ECDH Key Generation works just fine, but the shared secrets that it extracts do not match each other, and are usually filled with a bunch of 0s, which is a major issue. I am assuming that there is something wrong with my retrieveSharedSecret method and the JNI implementation there, but I am not sure what the issue is...Any help would be greatly appreciated!
+## What does it do?
+This project has some Java wrapper methods that calls the CryptoPP C++ Librarys ECDH code to generate public and private key pairs, as well as extract the shared secret from said public private key pairs. It uses Android studio and the NDK (non-experimental) to accomplish this.
