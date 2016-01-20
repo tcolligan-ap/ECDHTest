@@ -3,7 +3,7 @@ Test Project for ECDH and CryptoPP C++ JNI with Android Studio
 
 ## Building This Project
 * **CryptoPP Compile:**
-You can find the steps to compile CryptoPP for Android [here](https://github.com/joemccann/dillinger)
+You can find the steps to compile CryptoPP for Android [here](https://www.cryptopp.com/wiki/Android_(Command_Line))
 **OR** you can download my pre-compiled version from [here](http://www.mediafire.com/download/npt73f9369vuy1n/cryptopp.zip) (android-18 for arm, armeabi-v7a, x86).
 
 * **Make sure** that if you download my pre-compiled versions, that you put the cryptopp folder inside your /usr/local/ directory, since this is where the Android.mk file will look for them.
